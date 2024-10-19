@@ -14,11 +14,11 @@ public class User {
 	
 	private String name;
 	
-	// when an user is deleted, the account is deleted as well
+	// when a user is deleted, the account is deleted as well
 	@OneToOne(cascade = CascadeType.ALL)
 	private Account account;
 	
-	// Whenever I get an user, I'll want this property as well
+	// Whenever I get a user, I'll want this property as well
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private List<Feature> features;
 	
@@ -27,6 +27,14 @@ public class User {
 	
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private List<News> news;
+	
+	public UUID getId() {
+		return id;
+	}
+	
+	public void setId(UUID id) {
+		this.id = id;
+	}
 	
 	public String getName() {
 		return name;
